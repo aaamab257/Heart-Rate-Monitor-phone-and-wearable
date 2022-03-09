@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage"
+    android:background="#E8D9E4"
+    android:gravity="center"
+    >
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:id="@+id/img_logo"
+        />
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:text="STABLE"
+        android:textSize="8sp"
+        android:id="@+id/btn_stable"
+        />
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/btn_stable"
+        android:layout_centerHorizontal="true"
+        android:text="SEND"
+        android:textSize="8sp"
+        android:id="@+id/btn_send"
+        android:background="#F30505"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alert Sent"
+        android:gravity="center"
+        android:textSize="@dimen/screen_percentage_15"
+        android:layout_below="@id/img_logo"
+        android:textColor="#F40000"
+        android:id="@+id/txt_alert"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
