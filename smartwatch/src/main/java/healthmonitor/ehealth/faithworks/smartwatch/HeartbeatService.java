@@ -17,6 +17,8 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 import java.util.Random;
@@ -25,11 +27,12 @@ import java.util.Random;
  * Created by uwe on 01.04.15.
  */
 public class HeartbeatService extends Service implements SensorEventListener {
-
+    private DatabaseReference mDatabase;
     private static final String LOG_TAG = "MyHeart";
     final Handler handler = new Handler();
     private SensorManager mSensorManager;
     private int currentValue = 0;
+    //LatLng lat ;
     private IBinder binder = new HeartbeatServiceBinder();
     private OnChangeListener onChangeListener;
     Runnable runnable = new Runnable() {
@@ -112,6 +115,9 @@ public class HeartbeatService extends Service implements SensorEventListener {
                     Log.d(LOG_TAG, "sending new value to listener: " + newValue);
                     onChangeListener.onValueChanged(newValue);
                     sendMessageToHandheld(Integer.toString(newValue));
+                    mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                    mDatabase.child("dLC6klzv53SuY0nMwfdFwVP1aDs1").child("location").setValue(newValue);
                 }
             }
         }

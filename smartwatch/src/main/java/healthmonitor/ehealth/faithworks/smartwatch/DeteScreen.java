@@ -43,7 +43,7 @@ public class DeteScreen extends Activity {
                                 txtAlert.setVisibility(View.GONE);
                                 alertSent.setText("Alert Canceled");
                                 alertSent.setVisibility(View.VISIBLE);
-                                startActivity(new Intent(DeteScreen.this, WearActivity.class));
+                                startActivity(new Intent(DeteScreen.this, HomePage.class));
 
                             }
                         });
